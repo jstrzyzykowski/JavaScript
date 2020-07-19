@@ -12,7 +12,7 @@ function refreshDots(timePart, spnValue, dotsContainer) {
     for (let i = 0; i < timePart; i++) {
         dotsContainer[i].classList.add('active');
     }
-    if (timePart === 0) dotsContainer.forEach(dot => dot.classList.toggle('active'));
+    if (timePart === 0) dotsContainer.forEach(dot => dot.classList.remove('active'));
 };
 
 const clock = () => {

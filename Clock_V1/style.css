@@ -16,17 +16,19 @@ body {
 
 .clock {
     position: absolute;
-    width: 100%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    border: 5px solid #444;
+    padding: 20px;
+    background-image: linear-gradient(45deg, springgreen 0 4%, #222 4% 96%, springgreen 96% 100%);
+    overflow: hidden;
 }
 
 .clock>div {
     display: flex;
     flex-direction: row;
     justify-content: center;
-
 }
 
 .clock div p {
@@ -41,7 +43,7 @@ body {
     text-align: center;
 }
 
-.clock div span{
+.clock div span {
     font-size: 8rem;
     margin: 0 10px;
 }
@@ -59,7 +61,112 @@ body {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background-color: #777;
+    background-color: #666;
     margin: 1px;
+    transition: 0.3s;
 }
 
+.dots .dot.active {
+    background-color: springgreen;
+}
+
+.bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: springgreen;
+}
+
+.bar.top {
+    top: 0;
+    left: 100%;
+    width: 50px;
+    height: 5px;
+    animation: move-bar-top 1s linear infinite both alternate-reverse;
+}
+
+.bar.bottom {
+    top: calc(100% - 5px);
+    left: calc(100% - 50px);
+    width: 50px;
+    height: 5px;
+    animation: move-bar-bottom 1s linear infinite both alternate-reverse;
+}
+
+.bar.right {
+    top: -50px;
+    left: calc(100% - 5px);
+    width: 5px;
+    height: 50px;
+    animation: move-bar-right 1s linear infinite both alternate-reverse;
+}
+
+.bar.left {
+    top: -50px;
+    left: 0;
+    width: 5px;
+    height: 50px;
+    animation: move-bar-left 1s linear infinite both alternate-reverse;
+}
+
+@keyframes move-bar-top {
+    0% {
+        top: 0;
+        left: calc(100% - 50px);
+    }
+
+    50% {
+        left: -50px;
+    }
+
+    100% {
+        left: -50px;
+    }
+}
+
+@keyframes move-bar-right {
+    0% {
+        top: -50px;
+        left: calc(100% - 5px);
+    }
+
+    50% {
+        top: 100%;
+    }
+
+    100% {
+        top: 100%;
+    }
+}
+
+@keyframes move-bar-bottom {
+    0% {
+        top: calc(100% - 5px);
+        left: 100%;
+    }
+
+    40% {
+        top: calc(100% - 5px);
+        left: 100%;
+    }
+
+    100% {
+        left: -50px;
+    }
+}
+
+@keyframes move-bar-left {
+    0% {
+        top: -50px;
+        left: 0;
+    }
+
+    40% {
+        top: -50px;
+        left: 0;
+    }
+
+    100% {
+        top: calc(100% - 50px);
+    }
+}

@@ -18,7 +18,5 @@ class Wallet {
         }
     }
 
-    //Methods
+    // Prototype Area
 }
-
-const wallet = new Wallet(200);

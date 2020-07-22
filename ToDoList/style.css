@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ==================================== */
+
+html {
+    font-family: 'consolas';
+    font-size: 10px;
+}
+
+body {
+    background-color: #222;
+}
+
+button {
+    border-radius: 3px;
+    border: 1px solid #222;
+    font-family: 'consolas';
+}
+
+button.remove {
+    margin: 0 5px;
+}
+
+.block {
+    margin: 0 0 20px;
+}
+
+/* ==================================== */
+
+div.wrap {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    width: 400px;
+    transform: translate(-50%, 0);
+    padding: 20px 20px 0;
+    background-color: #555;
+}
+
+/* ==================================== */
+
+div.title {
+    display: flex;
+    flex-direction: row;
+    background-color: #777;
+    justify-content: space-between;
+}
+
+div.title h1 {
+    /* flex-grow: 1; */
+    font-size: 2.8rem;
+    padding: 0 5px;
+    color: whitesmoke;
+}
+
+div.title button {
+    padding: 5px 10px;
+}
+
+/* ==================================== */
+
+div.stats {
+    padding: 5px;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #777;
+}
+
+div.stats .stat .number {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 1.6rem;
+}
+
+/* ==================================== */
+
+div.creator {
+    display: flex;
+    flex-wrap: wrap;
+    /* height: 100px; */
+}
+
+div.creator input {
+    height: 8%;
+    flex-grow: 1;
+    /* width: 70%; */
+    margin-right: 10px;
+    padding: 5px 5px;
+    font-family: consolas;
+    font-size: 1.8rem;
+    color: whitesmoke;
+    background-color: #333;
+}
+
+div.creator select {
+    /* width: 18%; */
+    /* flex-shrink: 1; */
+    /* flex-grow: 1; */
+    font-family: 'consolas';
+    /* flex-basis: 30%; */
+    width: 32%;
+}
+
+div.creator button {
+    /* flex-grow: 1; */
+    padding: 10px 10px;
+    flex-grow: 1;
+    /* height: ; */
+    margin-top: 5px;
+}
+
+/* ==================================== */
+
+div.list {
+    background-color: #777;
+}
+
+div.list ul {
+    padding: 5px 5px;
+    max-height: 300px;
+    list-style: none;
+    background-color: #999;
+}
+
+.scroll-active {
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+div.list ul li {
+    margin-bottom: 10px;
+    background-color: #aaa;
+}
+
+div.list ul li p {
+    padding: 5px 10px;
+    font-size: 1.8rem;
+}
+
+div.list ul li:last-child {
+    margin-bottom: 0;
+}
+
+
+div.list ul li div {
+    display: flex;
+    align-items: center;
+}
+
+div.list ul li div span {
+    flex-grow: 1;
+    font-weight: 700;
+    text-align: center;
+}
+
+div.list ul li div button {
+    justify-self: flex-end;
+}
+
+div.list ul li div button {
+    width: 20%;
+    padding: 2px 5px;
+}
+
+div.list ul li .priority {
+    display: block;
+    font-size: 1.2rem;
+}
+
+span.important {
+    color: rgb(255, 201, 5);
+}
+
+
+span.vimportant {
+    color: rgb(199, 62, 71);
+}
+
+/* ==================================== */

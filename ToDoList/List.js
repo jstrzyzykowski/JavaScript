@@ -22,8 +22,12 @@ class List {
         this.titleH1.textContent = title;
 
         this.ul.textContent = "";
-        if (taskList.length > 4) this.ul.classList.add('scroll-active');
+        const numberOfCreated = taskList.filter(task => task.getStatus() === "created").length;
+        const numberOfFinished = taskList.filter(task => task.getStatus() === "finished").length;
+
+        if (numberOfCreated + numberOfFinished > 4) this.ul.classList.add('scroll-active');
         else this.ul.classList.remove('scroll-active');
+
         taskList.forEach((task, index) => {
             if (task.getStatus() === 'created' || task.getStatus() === 'finished') {
                 const li = document.createElement('li');
@@ -73,7 +77,7 @@ class List {
                     const li = e.target.parentNode.parentNode;
                     const taskNumber = li.dataset.number;
 
-                    // this.tasksList.splice(taskNumber, 1);
+
                     this.tasksList[taskNumber].setStatus('removed');
                     this.listStatistics.updateStats(this.tasksList);
                     this.render(this.title, this.tasksList);
@@ -128,11 +132,9 @@ class List {
 
     changeTitle() {
         const newTitle = prompt('Type new title for this list', 'New Title');
-        // const oldTitle = this.title;
         if (newTitle != "") {
             this.title = newTitle;
             this.render(newTitle, this.tasksList, this.listStatistics.getStatistics());
-            // return [oldTitle, newTitle];
         } else throw new Error('Empty value');
     }
 
@@ -147,7 +149,6 @@ class List {
             this.render(this.title, this.tasksList, this.listStatistics.getStatistics());
             this.input.value = "";
             document.getElementById('importantLevels').selectedIndex = 0;
-            // return this.tasksList;
         } else throw new Error('Empty value');
     }
 }

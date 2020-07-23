@@ -17,7 +17,8 @@ class Task {
         } else throw new Error('Content can not be empty');
     }
 
-    completeTask() {
+
+    changeStatusToComplete() {
         if (this.getStatus() != 'finished') this.setStatus('finished');
         else throw new Error('This task is already finished');
     }

@@ -21,6 +21,11 @@ button {
     font-family: 'consolas';
 }
 
+
+.off {
+    visibility: hidden;
+}
+
 button.remove {
     margin: 0 5px;
 }
@@ -84,13 +89,11 @@ div.stats .stat .number {
 div.creator {
     display: flex;
     flex-wrap: wrap;
-    /* height: 100px; */
 }
 
 div.creator input {
     height: 8%;
     flex-grow: 1;
-    /* width: 70%; */
     margin-right: 10px;
     padding: 5px 5px;
     font-family: consolas;
@@ -100,19 +103,13 @@ div.creator input {
 }
 
 div.creator select {
-    /* width: 18%; */
-    /* flex-shrink: 1; */
-    /* flex-grow: 1; */
     font-family: 'consolas';
-    /* flex-basis: 30%; */
     width: 32%;
 }
 
 div.creator button {
-    /* flex-grow: 1; */
     padding: 10px 10px;
     flex-grow: 1;
-    /* height: ; */
     margin-top: 5px;
 }
 
@@ -129,6 +126,7 @@ div.list ul {
     background-color: #999;
 }
 
+/* JS */
 .scroll-active {
     overflow: hidden;
     overflow-y: scroll;

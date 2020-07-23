@@ -10,7 +10,7 @@
 <div class="wrap">
     <div class="block title">
         <h1>My ToDoList</h1>
-        <button>Change</button>
+        <button class="titleChange">Change</button>
     </div>
 
     <div class="block stats">
@@ -19,11 +19,11 @@
             <span class="number">0</span>
         </div>
         <div class="stat">
-            <h2>Finished</h2>
+            <h2>Removed</h2>
             <span class="number">0</span>
         </div>
         <div class="stat">
-            <h2>Removed</h2>
+            <h2>Finished</h2>
             <span class="number">0</span>
         </div>
     </div>
@@ -34,7 +34,7 @@
             <option value="important">Important</option>
             <option value="vimportant">Very-Important</option>
         </select>
-        <button>Create</button>
+        <button class="createTask">Create</button>
     </div>
     <div class="block list">
         <ul>
@@ -71,6 +71,7 @@
 
 <body>
     <script src="Task.js"></script>
+    <script src="Statistics.js"></script>
     <script src="List.js"></script>
     <script src="main.js"></script>
 </body>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #222;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        button {
+            display: block;
+            margin: 30px auto;
+            padding: 10px 30px;
+            text-transform: uppercase;
+        }
+
+        section {
+            margin: 10px 5px;
+        }
+
+        .square {
+            float: left;
+            margin: 5px;
+            width: 50px;
+            height: 50px;
+            background-color: #222;
+            color: #222;
+            line-height: 50px;
+            text-align: center;
+        }
+
+        .circle {
+            float: left;
+            margin: 5px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: #222;
+            line-height: 50px;
+            text-align: center;
+            border: 2px solid #222;
+        }
+
+        @keyframes squareStep {
+            1% {
+                background-color: royalblue;
+                color: whitesmoke;
+            }
+        }
+
+        @keyframes circleStep {
+            1% {
+                box-shadow: 0 0 10px 10px orangered;
+                font-size: 28px;
+                color: orangered;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button>kliknij</button>
+    <button>Remove</button>
+    <section class="clearfix">
+    </section>
+    <script src="main.js"></script>
+</body>
+
+</html>

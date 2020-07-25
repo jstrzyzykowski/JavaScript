@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FormValidation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <form id="login" action="result.html" method="GET">
+        <div>
+            <label for="nickname">Nickname</label>
+            <input type="text" name="nickname" id="nickname">
+            <div class="error nick-msg"></div>
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="text" name="password" id="password">
+            <div class="error pass-msg"></div>
+        </div>
+        <button type="submit">Login</button>
+    </form>
+    <script defer src="main.js"></script>
+</body>
+
+</html>

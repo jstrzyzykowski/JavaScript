@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+}
+
+:root {
+    --mainColor: whitesmoke;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to bottom right, orange, red);
+}
+
+h1.menuTitle {
+    font-size: 4rem;
+    text-transform: uppercase;
+    color: var(--mainColor);
+}
+
+h3 {
+    margin: 30px 0 20px;
+    font-size: 2.2rem;
+    color: var(--mainColor);
+}
+
+/* div {
+    padding: 30px 0;
+} */
+
+button {
+    position: relative;
+    width: 80px;
+    height: 70px;
+    margin: 0 20px;
+    border: 2px solid #222;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px 0 #222;
+    background-color: transparent;
+    transition: 0.2s ease;
+}
+
+.fa-utensils {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    display: block;
+    font-size: 2.8rem;
+    color: #222;
+}
+
+span {
+    position: absolute;
+    bottom: 0;
+    right: 10%;
+    font-size: 4.8rem;
+    font-weight: 700;
+}
+
+button:hover {
+    box-shadow: 2px 2px 10px 0 whitesmoke;
+}
+
+p.menuInfo {
+    margin-top: 25px;
+    font-size: 2.2rem;
+    color: whitesmoke;
+}

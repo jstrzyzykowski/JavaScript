@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+}
+
+:root {
+    --white: #fff;
+    /* var(--white) */
+}
+
+/* ================================================= */
+
+/* ================================================= */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    color: whitesmoke;
+    min-height: 100vh;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    /* border: 2px solid red; */
+    /* background-color: #555; */
+    width: 900px;
+    margin: 0 20px;
+}
+
+.top {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    /* background-color: gray; */
+}
+
+.top h1 {
+    text-transform: uppercase;
+
+}
+
+.bottom {
+    display: flex;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 35%;
+    margin-right: 20px;
+    /* background-color: rebeccapurple; */
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    /* border: 2px solid black; */
+}
+
+.left label {
+    display: block;
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+}
+
+.left input {
+    padding: 5px;
+    font-size: 1.6rem;
+}
+
+.numbers {
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    /* background-color: chartreuse; */
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.numbers button {
+    margin: 5px;
+    width: 25%;
+    height: 40px;
+}
+
+#searchBtn {
+    padding: 10px 0;
+}
+
+.right {
+    /* background-color: salmon; */
+    overflow: hidden;
+}
+
+.right .images {
+    display: flex;
+    flex-basis: 60%;
+}
+
+.right img {
+    margin: 5px;
+}
+
+.right .galleryButtons {
+    display: flex;
+    justify-content: center;
+}
+
+.right .galleryButtons button:nth-of-type(1) {
+    margin-right: 20px;
+}
+
+.right .galleryButtons button {
+    background-color: transparent;
+    border: none;
+}
+
+.right .galleryButtons button .fas {
+    color: whitesmoke;
+    font-size: 4.8rem;
+}
+
+.right .galleryButtons button:nth-of-type(2) .fas {
+    transform: rotate(180deg);
+}
+
+
+
+/* ================================================= */
+
+/* ================================================= */
+
+/* .small {
+    width: 160px;
+} */

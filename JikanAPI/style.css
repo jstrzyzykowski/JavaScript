@@ -31,23 +31,27 @@ body {
     display: flex;
     flex-direction: column;
     padding: 20px;
-    /* border: 2px solid red; */
-    /* background-color: #555; */
     width: 900px;
     margin: 0 20px;
 }
 
+/* ================================================= */
+
+/* ================================================= */
+
 .top {
     display: flex;
-    justify-content: center;
     margin-bottom: 20px;
-    /* background-color: gray; */
 }
 
 .top h1 {
     text-transform: uppercase;
 
 }
+
+/* ================================================= */
+
+/* ================================================= */
 
 .bottom {
     display: flex;
@@ -58,20 +62,14 @@ body {
     flex-direction: column;
     flex-basis: 35%;
     margin-right: 20px;
-    /* background-color: rebeccapurple; */
-}
-
-.left {
-    display: flex;
-    flex-direction: column;
     padding: 10px;
-    /* border: 2px solid black; */
+    background-color: #666;
+    border-radius: 10px;
 }
 
 .left label {
     display: block;
     font-size: 1.6rem;
-    margin-bottom: 5px;
 }
 
 .left input {
@@ -79,29 +77,36 @@ body {
     font-size: 1.6rem;
 }
 
+.left .alert {
+    font-size: 1.2rem;
+    color: rgb(255, 71, 82);
+}
+
 .numbers {
     display: flex;
     justify-content: center;
-    align-content: flex-start;
+    align-content: center;
     flex-wrap: wrap;
-    /* background-color: chartreuse; */
-    padding: 20px;
+    padding: 10px;
     flex-grow: 1;
 }
 
 .numbers button {
     margin: 5px;
-    width: 25%;
-    height: 40px;
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
 }
 
 #searchBtn {
     padding: 10px 0;
+    border-radius: 5px;
 }
 
 .right {
-    /* background-color: salmon; */
     overflow: hidden;
+    background-color: #666;
+    border-radius: 10px;
 }
 
 .right .images {
@@ -110,16 +115,34 @@ body {
 }
 
 .right img {
-    margin: 5px;
+    margin: 10px;
+    filter: grayscale(70%) opacity(10%);
+}
+
+.right img.activeImg {
+    filter: grayscale(0%) opacity(100%);
 }
 
 .right .galleryButtons {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    margin: 0 20px;
 }
 
-.right .galleryButtons button:nth-of-type(1) {
-    margin-right: 20px;
+.right .galleryButtons .line {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    background-color: #444;
+    height: 40px;
+    align-self: center;
+}
+
+.right .galleryButtons .line p {
+    font-size: 1.6rem;
+    text-align: center;
+    width: 100%;
 }
 
 .right .galleryButtons button {
@@ -129,19 +152,9 @@ body {
 
 .right .galleryButtons button .fas {
     color: whitesmoke;
-    font-size: 4.8rem;
+    font-size: 4rem;
 }
 
 .right .galleryButtons button:nth-of-type(2) .fas {
     transform: rotate(180deg);
 }
-
-
-
-/* ================================================= */
-
-/* ================================================= */
-
-/* .small {
-    width: 160px;
-} */

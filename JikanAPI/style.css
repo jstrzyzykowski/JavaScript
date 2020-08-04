@@ -64,7 +64,7 @@ body {
     margin-right: 20px;
     padding: 10px;
     background-color: #666;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .left label {
@@ -82,6 +82,11 @@ body {
     color: rgb(255, 71, 82);
 }
 
+/* JS */
+.left .hide {
+    display: none;
+}
+
 .numbers {
     display: flex;
     justify-content: center;
@@ -96,6 +101,18 @@ body {
     width: 50px;
     height: 50px;
     border-radius: 5px;
+    background-color: #333;
+    color: #bbb;
+    font-size: 1.8rem;
+    font-weight: 700;
+    border: none;
+    transition: 0.1s ease-in;
+
+}
+
+.numbers button:hover {
+    background-color: rgb(45, 204, 112);
+    color: #333;
 }
 
 #searchBtn {
@@ -105,18 +122,21 @@ body {
 
 .right {
     overflow: hidden;
+    min-width: 500px;
     background-color: #666;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .right .images {
     display: flex;
     flex-basis: 60%;
+    transition: 0.3s ease;
 }
 
 .right img {
     margin: 10px;
     filter: grayscale(70%) opacity(10%);
+    transition: 0.2s ease;
 }
 
 .right img.activeImg {
@@ -130,19 +150,58 @@ body {
     margin: 0 20px;
 }
 
+.right .hide {
+    display: none;
+}
+
 .right .galleryButtons .line {
     display: flex;
+    position: relative;
     align-items: center;
     width: 80%;
     background-color: #444;
     height: 40px;
     align-self: center;
+    z-index: 0;
+}
+
+.right .galleryButtons .line .loadBar {
+    content: "";
+    position: absolute;
+    height: 100%;
+    background-color: rgb(45, 204, 112);
+    z-index: -1;
+    animation: loadBar 10s linear infinite;
+}
+
+@keyframes loadBar {
+    0% {
+        width: 0;
+    }
+
+    3% {
+        width: 0;
+    }
+
+    97% {
+        width: 100%;
+    }
+
+    100% {
+        width: 100%;
+    }
 }
 
 .right .galleryButtons .line p {
     font-size: 1.6rem;
     text-align: center;
     width: 100%;
+}
+
+.right .galleryButtons .line p .animeTitle a {
+    text-decoration: none;
+    color: whitesmoke;
+    font-weight: 700;
 }
 
 .right .galleryButtons button {

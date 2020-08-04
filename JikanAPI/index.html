@@ -15,8 +15,8 @@
     <div class="bottom">
         <div class="left">
             <label for="animeID">Anime ID</label>
-            <input type="text" name="animeID" id="animeID">
-            <p class="alert">Invalid ID number.</p>
+            <input type="number" min="0" name="animeID" id="animeID">
+            <p class="alert hide">Anime ID not found.</p>
             <div class="numbers">
                 <button class="num1">1</button>
                 <button class="num2">2</button>
@@ -35,21 +35,22 @@
         </div>
         <div class="right">
             <div class="images">
-                <img class="activeImg" src="https://cdn.myanimelist.net/images/anime/8/19473.jpg" alt="">
+                <!-- <img class="activeImg" src="https://cdn.myanimelist.net/images/anime/8/19473.jpg" alt="">
+                <img src="https://cdn.myanimelist.net/images/anime/8/19473.jpg" alt="">
+                <img src="https://cdn.myanimelist.net/images/anime/8/19473.jpg" alt="">
+                <img src="https://cdn.myanimelist.net/images/anime/8/19473.jpg" alt=""> -->
+                <!-- <img src="https://cdn.myanimelist.net/images/anime/8/19473.jpg" alt="">
                 <img src="https://cdn.myanimelist.net/images/anime/8/19473.jpg" alt="">
                 <img src="https://cdn.myanimelist.net/images/anime/8/19473.jpg" alt="">
                 <img src="https://cdn.myanimelist.net/images/anime/8/19473.jpg" alt="">
-                <img src="https://cdn.myanimelist.net/images/anime/8/19473.jpg" alt="">
-                <img src="https://cdn.myanimelist.net/images/anime/8/19473.jpg" alt="">
-                <img src="https://cdn.myanimelist.net/images/anime/8/19473.jpg" alt="">
-                <img src="https://cdn.myanimelist.net/images/anime/8/19473.jpg" alt="">
-                <img src="https://cdn.myanimelist.net/images/anime/8/19473.jpg" alt="">
+                <img src="https://cdn.myanimelist.net/images/anime/8/19473.jpg" alt=""> -->
             </div>
-            <div class="galleryButtons">
+            <div class="galleryButtons hide">
                 <button id="prevBtn"><i class="fas fa-caret-square-left"></i></button>
                 <div class="line">
-                    <p><span class="animeTitle">Hunter x Hunter 1999</span> - picture <span
-                            class="pictureNumber">1</span>
+                    <span class="loadBar"></span>
+                    <p><span class="animeTitle"></span> - [<span class="currentImgNumber"></span>/<span
+                            class="totalImgNumber"></span>]
                     </p>
                 </div>
                 <button id="nextBtn"><i class="fas fa-caret-square-left"></i></button>

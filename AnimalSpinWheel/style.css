@@ -170,6 +170,18 @@ i.active {
     display: none;
 }
 
+p.alert {
+    position: absolute;
+    top: 7%;
+    left: 8%;
+    color: #ccc;
+    font-size: 1.6rem;
+}
+
+p.alert.hide {
+    display: none;
+}
+
 ul {
     position: absolute;
     top: 14%;

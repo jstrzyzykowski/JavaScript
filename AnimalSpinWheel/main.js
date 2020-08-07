@@ -2,6 +2,8 @@ let $spinBtn;
 let $wheelDiv;
 let $animalsIcons = [...document.querySelectorAll('.animals i')];
 let $ul;
+let $checkBtnIcon;
+let $alertP;
 
 let spinValue;
 let spinAnimalNumber;
@@ -15,11 +17,14 @@ const prepareDOMElements = () => {
     $spinBtn = document.querySelector('.spin');
     $wheelDiv = document.querySelector('.wheel');
     $ul = document.querySelector('.results');
+    $checkBtnIcon = document.querySelector('.checkBtn i');
+    $alertP = document.querySelector('.alert');
 }
 
 const prepareDOMEvents = () => {
     $spinBtn.addEventListener('click', spinWheel);
     $wheelDiv.addEventListener('animationend', finishSpinWheel);
+    $checkBtnIcon.addEventListener('click', checkItemsInside);
 }
 
 const spinWheel = () => {
@@ -58,6 +63,12 @@ const finishSpinWheel = () => {
     }
 
     $ul.appendChild(li);
+    checkItemsInside();
+}
+
+const checkItemsInside = () => {
+    if ($ul.innerText === "") $alertP.classList.toggle('hide');
+    else $alertP.classList.add('hide');
 }
 
 

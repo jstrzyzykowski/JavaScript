@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --navHeight: 100px;
+    /* var(--white) */
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+}
+
+.wrapper {
+    /* max-width: 1024px; */
+    min-width: 1024px;
+}
+
+body {
+    min-height: 200vh;
+}
+
+.promo {
+    color: rgb(69, 73, 63);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    background-color: rgb(254, 177, 35);
+}
+
+.promo p {
+    /* display: block; */
+    /* height: 40px;
+    line-height: 40px; */
+    font-size: 1.4rem;
+}
+
+.promo p .bold {
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.promo p .timer {
+    background-color: rgb(255, 71, 82);
+    padding: 7px 20px;
+    border-radius: 5px;
+}
+
+
+
+header {
+    display: flex;
+    background-color: #ccc;
+    height: var(--navHeight);
+    /* border-bottom: 2px solid whitesmoke; */
+    /* shadow */
+    border-top: 4px solid rgb(229, 124, 50);
+    /* box-shadow: 0 -3px 3px 3px white; */
+    /* z-index: 2; */
+}
+
+header .logo,
+header .contact,
+header .settings {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10vw;
+    background-color: #666;
+    /* height: 60px; */
+    /* box-shadow: 0 1px 10px 2px whitesmoke; */
+}
+
+header .logo {
+    width: 15vw;
+}
+
+header .logo a,
+header .contact a,
+header .settings a {
+    text-align: center;
+    width: 100%;
+    height: var(--navHeight);
+    line-height: var(--navHeight);
+    text-decoration: none;
+    color: whitesmoke;
+    font-size: 1.8rem;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    background-color: #888;
+    padding: 0 2vw;
+    /* padding-left: 2vw; */
+    flex-grow: 1;
+    /* justify-content: center; */
+}
+
+nav ul {
+    display: flex;
+    flex-grow: 1;
+    list-style: none;
+    justify-content: center;
+
+}
+
+nav ul li {
+    /* border-radius: 5px; */
+}
+
+nav ul li a {
+    display: block;
+    text-decoration: none;
+    color: whitesmoke;
+    font-size: 1.8rem;
+    background-color: #555;
+    padding: 10px 4vw;
+    /* border: 1px solid palevioletred; */
+    /* height: var(--navHeight); */
+    border-radius: 5px;
+    margin: 3px;
+
+    /* line-height: var(--navHeight); */
+}
+
+/* ==================================== */
+
+/* ==================================== */
+
+.header-hero {
+    /* margin-top: var(--navHeight); */
+    height: 50vh;
+    background-color: #333;
+    /* z-index: 0; */
+}

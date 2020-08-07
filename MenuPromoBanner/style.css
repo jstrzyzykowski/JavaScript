@@ -15,12 +15,19 @@ html {
 }
 
 .wrapper {
-    /* max-width: 1024px; */
-    min-width: 1024px;
+    /* min-width: 1024px; */
 }
 
 body {
     min-height: 200vh;
+}
+
+.outer-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: 0.2s ease;
 }
 
 .promo {
@@ -30,12 +37,10 @@ body {
     align-items: center;
     height: 40px;
     background-color: rgb(254, 177, 35);
+    border-bottom: 4px solid rgb(229, 124, 50);
 }
 
 .promo p {
-    /* display: block; */
-    /* height: 40px;
-    line-height: 40px; */
     font-size: 1.4rem;
 }
 
@@ -51,17 +56,14 @@ body {
     border-radius: 5px;
 }
 
-
+.hide {
+    display: none;
+}
 
 header {
     display: flex;
     background-color: #ccc;
     height: var(--navHeight);
-    /* border-bottom: 2px solid whitesmoke; */
-    /* shadow */
-    border-top: 4px solid rgb(229, 124, 50);
-    /* box-shadow: 0 -3px 3px 3px white; */
-    /* z-index: 2; */
 }
 
 header .logo,
@@ -72,8 +74,6 @@ header .settings {
     align-items: center;
     width: 10vw;
     background-color: #666;
-    /* height: 60px; */
-    /* box-shadow: 0 1px 10px 2px whitesmoke; */
 }
 
 header .logo {
@@ -97,9 +97,7 @@ nav {
     align-items: center;
     background-color: #888;
     padding: 0 2vw;
-    /* padding-left: 2vw; */
     flex-grow: 1;
-    /* justify-content: center; */
 }
 
 nav ul {
@@ -110,9 +108,7 @@ nav ul {
 
 }
 
-nav ul li {
-    /* border-radius: 5px; */
-}
+nav ul li {}
 
 nav ul li a {
     display: block;
@@ -121,12 +117,8 @@ nav ul li a {
     font-size: 1.8rem;
     background-color: #555;
     padding: 10px 4vw;
-    /* border: 1px solid palevioletred; */
-    /* height: var(--navHeight); */
     border-radius: 5px;
     margin: 3px;
-
-    /* line-height: var(--navHeight); */
 }
 
 /* ==================================== */
@@ -134,8 +126,7 @@ nav ul li a {
 /* ==================================== */
 
 .header-hero {
-    /* margin-top: var(--navHeight); */
+    /* margin-top: 140px; */
     height: 50vh;
     background-color: #333;
-    /* z-index: 0; */
 }

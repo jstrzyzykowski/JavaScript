@@ -14,10 +14,6 @@ html {
     font-size: 10px;
 }
 
-.wrapper {
-    /* min-width: 1024px; */
-}
-
 body {
     min-height: 200vh;
 }
@@ -92,6 +88,11 @@ header .settings a {
     font-size: 1.8rem;
 }
 
+header .contact a:hover,
+header .settings a:hover {
+    background-color: #ccc;
+}
+
 nav {
     display: flex;
     align-items: center;
@@ -108,8 +109,6 @@ nav ul {
 
 }
 
-nav ul li {}
-
 nav ul li a {
     display: block;
     text-decoration: none;
@@ -119,7 +118,15 @@ nav ul li a {
     padding: 10px 4vw;
     border-radius: 5px;
     margin: 3px;
+    transition: 0.2s ease;
 }
+
+nav ul li a:hover {
+    background-color: #ccc;
+    color: rgb(69, 73, 63);
+    /* font-weight: 700; */
+}
+
 
 /* ==================================== */
 

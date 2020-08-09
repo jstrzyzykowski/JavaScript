@@ -1,0 +1,224 @@
+/* Global */
+/* font-family: 'Pacifico', cursive; */
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: 0;
+}
+
+html {
+    font-family: 'Pacifico', cursive, sans-serif;
+    font-size: 10px;
+}
+
+:root {
+    --exampleVar: 100deg;
+    /* transform: rotate(var(--exampleVar)) */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* align-content: center; */
+    background-image: linear-gradient(to right top, #ecf0f1, #c9cbcd, #a7a8a9, #868687, #666666);
+    min-height: 100vh;
+}
+
+/* Pads */
+
+h1 {
+    font-size: 4.8rem;
+    color: whitesmoke;
+    text-shadow: 0 2px 2px #222;
+}
+
+div.pads {
+    display: flex;
+    height: 200px;
+    width: 700px;
+    justify-content: space-evenly;
+    /* align-items: center; */
+    padding-top: 20px;
+}
+
+div.pads div.pad {
+    /* position: relative; */
+    width: 90px;
+    height: 90px;
+    background-color: #888;
+    margin: 8px;
+    border-radius: 8px;
+    box-shadow:
+        0 0 10px 0px #555,
+        0px 50px 2px -2px #666;
+    transition: all 0.2s ease;
+    transition: background-color 0.3s ease;
+    line-height: 90px;
+    text-align: center;
+    color: #bbb;
+    /* animation-name: wave;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;*/
+    /* animation-duration: 10s; */
+    /* animation-duration: 3s; */
+
+}
+
+div.pads div.pad:hover {
+    /* box-shadow:
+        0 0 40px 0px rgb(230, 230, 230),
+        0px 50px 2px -2px #666; */
+    color: palevioletred;
+    background-color: #aaa;
+    border: none;
+}
+
+div.pads div.pad i {
+    line-height: 90px;
+    font-size: 4.4rem;
+}
+
+div.pads div.pad:hover i {
+    font-size: 4.8rem;
+    text-shadow: 0 0 8px rgb(206, 142, 163);
+}
+
+div.pads div.pad.pad-active {
+    background-color: #ccc;
+    box-shadow:
+        0 0 15px 2px palevioletred,
+        0px 5px 2px -2px #666;
+    color: palevioletred;
+}
+
+@keyframes wave {
+    0% {
+        transform: translateY(0);
+    }
+
+    3% {
+        transform: translateY(45px);
+        box-shadow:
+            0 0 10px 0px #555,
+            0px 5px 2px -2px #666;
+    }
+
+    4% {
+        transform: translateY(0);
+        box-shadow:
+            0 0 10px 0px #555,
+            0px 50px 2px -2px #666;
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes push {
+    0% {
+        transform: translateY(0);
+        box-shadow:
+            0 0 10px 0px #555,
+            0px 50px 2px -2px #666;
+    }
+
+    20% {
+        transform: translateY(45px);
+        box-shadow:
+            0 0 10px 0px #555,
+            0px 5px 2px -2px #666;
+    }
+
+    100% {
+        transform: translateY(0);
+        box-shadow:
+            0 0 10px 0px #555,
+            0px 50px 2px -2px #666;
+    }
+}
+
+/* div.pads div.pad:nth-of-type(1) {
+    animation-delay: 0;
+}
+
+div.pads div.pad:nth-of-type(2) {
+    animation-delay: 0.1s;
+}
+
+div.pads div.pad:nth-of-type(3) {
+    animation-delay: 0.2s;
+}
+
+div.pads div.pad:nth-of-type(4) {
+    animation-delay: 0.3s;
+}
+
+div.pads div.pad:nth-of-type(5) {
+    animation-delay: 0.4s;
+}
+
+div.pads div.pad:nth-of-type(6) {
+    animation-delay: 0.5s;
+} */
+
+/* Footer */
+
+footer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+footer i {
+    font-size: 5.6rem;
+    margin-bottom: 10px;
+    color: whitesmoke;
+    text-shadow: 0 0 2px black;
+    /* border: 1px solid black; */
+    animation: shake 5s infinite ease;
+}
+
+footer p {
+    color: #777;
+    font-size: 1.6rem;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    2% {
+        transform: translateX(-10px);
+    }
+
+    4% {
+        transform: translateX(10px);
+    }
+
+    6% {
+        transform: translateX(-10px);
+    }
+
+    8% {
+        transform: translateX(10px);
+    }
+
+    10% {
+        transform: translateX(-10px);
+    }
+
+    12% {
+        transform: translateX(0px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}

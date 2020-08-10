@@ -16,7 +16,6 @@ html {
 
 :root {
     --exampleVar: 100deg;
-    /* transform: rotate(var(--exampleVar)) */
 }
 
 body {
@@ -24,7 +23,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* align-content: center; */
     background-image: linear-gradient(to right top, #ecf0f1, #c9cbcd, #a7a8a9, #868687, #666666);
     min-height: 100vh;
 }
@@ -42,12 +40,10 @@ div.pads {
     height: 200px;
     width: 700px;
     justify-content: space-evenly;
-    /* align-items: center; */
     padding-top: 20px;
 }
 
 div.pads div.pad {
-    /* position: relative; */
     width: 90px;
     height: 90px;
     background-color: #888;
@@ -61,18 +57,9 @@ div.pads div.pad {
     line-height: 90px;
     text-align: center;
     color: #bbb;
-    /* animation-name: wave;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;*/
-    /* animation-duration: 10s; */
-    /* animation-duration: 3s; */
-
 }
 
 div.pads div.pad:hover {
-    /* box-shadow:
-        0 0 40px 0px rgb(230, 230, 230),
-        0px 50px 2px -2px #666; */
     color: palevioletred;
     background-color: #aaa;
     border: none;
@@ -143,30 +130,6 @@ div.pads div.pad.pad-active {
     }
 }
 
-/* div.pads div.pad:nth-of-type(1) {
-    animation-delay: 0;
-}
-
-div.pads div.pad:nth-of-type(2) {
-    animation-delay: 0.1s;
-}
-
-div.pads div.pad:nth-of-type(3) {
-    animation-delay: 0.2s;
-}
-
-div.pads div.pad:nth-of-type(4) {
-    animation-delay: 0.3s;
-}
-
-div.pads div.pad:nth-of-type(5) {
-    animation-delay: 0.4s;
-}
-
-div.pads div.pad:nth-of-type(6) {
-    animation-delay: 0.5s;
-} */
-
 /* Footer */
 
 footer {
@@ -180,7 +143,6 @@ footer i {
     margin-bottom: 10px;
     color: whitesmoke;
     text-shadow: 0 0 2px black;
-    /* border: 1px solid black; */
     animation: shake 5s infinite ease;
 }
 

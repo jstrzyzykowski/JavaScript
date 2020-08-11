@@ -1,5 +1,6 @@
 // Objects
 let crosshairObj;
+let birdsObjs = [];
 
 // DOM elements
 let crosshairDiv;
@@ -9,7 +10,6 @@ let birdsDiv;
 
 // Other containers
 let shotDotsArr = [];
-let birds = [];
 let spawnInterval;
 
 const main = () => {
@@ -26,16 +26,18 @@ const prepareDOMElements = () => {
 
 const prepareDOMEvents = () => {
     window.addEventListener('mousemove', moveCrosshair);
-    window.addEventListener('click', shot);
-    setInterval(cleanShotDots, 3000);
-    spawnInterval = setInterval(spawnBirds, 5000);
+    window.addEventListener('click', checkClick);
+    setInterval(cleanShotDots, 5000);
+    spawnInterval = setInterval(spawnBirds, 2000);
 }
 
 const createCrosshair = () => {
-    crosshairObj = new Crosshair(5, 'red');
+    crosshairObj = new Crosshair(window.innerWidth / 2, window.innerHeight / 2, 5, 'red');
 
     crosshairDiv = document.createElement('div')
     crosshairDiv.classList.add('crosshair');
+    crosshairDiv.style.top = `${crosshairObj.posY}px`;
+    crosshairDiv.style.left = `${crosshairObj.posX}px`;
     crosshairDiv.style.width = `${crosshairObj.getSize() * 10}px`;
     crosshairDiv.style.height = `${crosshairObj.getSize() * 10}px`;
     crosshairDiv.style.borderColor = `${crosshairObj.getColor()}`;
@@ -65,11 +67,12 @@ const moveCrosshair = (e) => {
     crosshairDiv.style.top = `${crosshairObj.getPosition()[1]}px`;
 }
 
-const shot = (e) => {
+const checkClick = (e) => {
+
     const shotPosX = e.clientX;
     const shotPosY = e.clientY;
-    soundsAudio[0].currentTime = 0;
-    soundsAudio[0].play();
+
+    // if (shotPosX > 700 && shotPosX <= 710 && shotPosY > 20 && shotPosY < 50) console.log('TRAFIONY PUNKT');
 
     const shotDot = document.createElement('div');
     shotDot.classList.add('shotDot');
@@ -83,6 +86,9 @@ const shot = (e) => {
 
     shotDotsArr.push(shotDot);
     shotDotsDiv.appendChild(shotDot);
+
+    soundsAudio[0].currentTime = 0;
+    soundsAudio[0].play();
 }
 
 const cleanShotDots = () => {
@@ -94,26 +100,28 @@ const cleanShotDots = () => {
 
 const spawnBirds = () => {
 
-    if (birds.length < 10) {
-        const root = document.documentElement;
+    if (birdsObjs.length < 5) {
 
         const randomStart = Math.floor(Math.random() * (window.innerHeight - 117));
         const randomEnd = Math.floor(Math.random() * (window.innerHeight - 117));
 
-        root.style.setProperty('--moveBirdStart', `${randomStart}px`);
-        root.style.setProperty('--moveBirdEnd', `${randomEnd}px`);
+        const newBirdObj = new Bird([randomStart, randomEnd]);
+        birdsObjs.push(newBirdObj);
 
-        const bird = document.createElement('div');
-        bird.classList.add('bird');
+        document.documentElement.style.setProperty('--moveBirdStart', `${randomStart}px`);
 
-        birds.push(bird);
-        birdsDiv.appendChild(bird);
-        console.log(birds.length);
+        document.documentElement.style.setProperty('--moveBirdEnd', `${randomEnd}px`);
+
+        // Render
+        const newBirdDiv = document.createElement('div');
+        newBirdDiv.classList.add('bird');
+        newBirdDiv.style.top = `${newBirdObj.getStartPosition()}px`;
+        birdsDiv.appendChild(newBirdDiv);
+
     } else {
         clearInterval(spawnInterval);
-        birds = [];
+        birdsObjs = [];
         birdsDiv.innerText = '';
-        console.log('KONIEC!!!');
     }
 }
 

@@ -97,15 +97,12 @@ div.birds {
 div.birds div.bird {
     position: absolute;
     left: calc(100% + 182px);
-    top: 20px;
     background-image: url(./images/bird.png);
     width: 182px;
     height: 117px;
-    background-color: #999;
+    /* background-color: #999; */
     animation: fly 0.25s infinite steps(4),
-        moveRightToLeft 5s infinite linear;
-    /* transform: rotateY(180deg); */
-
+        moveRightToLeft 2s infinite linear;
 }
 
 @keyframes fly {
@@ -131,7 +128,7 @@ div.birds div.bird {
     }
 }
 
-@keyframes moveLeftToRight {
+/* @keyframes moveLeftToRight {
 
     0% {
         left: -182px;
@@ -140,4 +137,4 @@ div.birds div.bird {
     100% {
         left: calc(100% + 182px);
     }
-}
+} */

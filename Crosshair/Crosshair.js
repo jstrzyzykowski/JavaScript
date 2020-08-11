@@ -1,7 +1,7 @@
 class Crosshair {
-    constructor(size, color) {
-        this.posX = 0;
-        this.posY = 0;
+    constructor(posX, posY, size, color) {
+        this.posX = posX;
+        this.posY = posY;
         this.size = size;
         this.color = color;
     }

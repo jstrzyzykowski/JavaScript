@@ -27,7 +27,9 @@ const prepareDOMEvents = () => {
 }
 
 const createBoard = () => {
-    $boardObj = new Board(600, 400);
+    const boardWidth = 600;
+    const boardHeight = 400;
+    $boardObj = new Board(boardWidth, boardHeight);
 
     $boardDiv = document.createElement('div');
     $boardDiv.style.width = `${$boardObj.getBoardSize()[0]}px`;

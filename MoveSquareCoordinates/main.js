@@ -4,9 +4,11 @@ let squareObj;
 // Global DOM
 let squareDiv;
 
+// Other
+let timer;
+
 const main = () => {
-    createSquare();
-    setTimeout(moveSquare, 1000);
+    setInterval(spawnSquare, 4000);
     prepareDOMElements();
     prepareDOMEvents();
 }
@@ -19,7 +21,12 @@ const createSquare = () => {
     squareObj = new Square(50, [window.innerWidth - 100, 300], [100, 300]);
 
     squareDiv = document.createElement('div');
+    squareDiv.addEventListener('click', function() {
+        console.log(`TOP: ${this.style.top} LEFT: ${this.style.left}`);
+        clearInterval(timer);
+    });
     squareDiv.classList.add('square');
+
 
     squareDiv.style.width = `${squareObj.getSquareSide()}px`;
     squareDiv.style.height = `${squareObj.getSquareSide()}px`;
@@ -39,9 +46,10 @@ const moveSquare = () => {
     let endX = squareObj.getPosEnd()[0];
     let endY = squareObj.getPosEnd()[1];
 
-    let timer = setInterval(function() {
+    timer = setInterval(function() {
         if (startX === endX) {
             clearInterval(timer);
+            removeSquare();
             return;
         }
         draw();
@@ -57,6 +65,17 @@ const moveSquare = () => {
         squareDiv.querySelector('span.pos-y').innerText = `${squareObj.getPosNow()[1]}`;
         squareDiv.style.left = `${startX}px`;
     }
+}
+
+const removeSquare = () => {
+    document.body.removeChild(squareDiv);
+    squareObj = "";
+    squareDiv = "";
+}
+
+const spawnSquare = () => {
+    createSquare();
+    setTimeout(moveSquare, 1000);
 }
 
 

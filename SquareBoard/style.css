@@ -6,7 +6,9 @@
     /* box-sizing: border-box; */
 }
 
-/* :root {} */
+/* :root {
+    --fieldMargin: 2px;
+} */
 
 html {
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
@@ -24,23 +26,51 @@ body {
     background-color: #333;
 }
 
+img {
+    display: none;
+}
+
 div.board {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: calc(5 * 50px + 5 * 2px);
-    height: calc(5 * 50px + 5 * 2px);
-    /* border: 2px solid fuchsia; */
+    /* width: calc(5 * 50px + 5 * var(--fieldMargin));
+    height: calc(5 * 50px + 5 * var(--fieldMargin)); */
+    /* border-image: url(images/top-left.png) 10 round; */
+    /* box-sizing: content-box; */
+    border: 20px solid transparent;
+    /* padding: 110px; */
+    border-image: url(images/border.png) 10 round;
+
 }
 
 div.board div.field {
-    margin: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin: 1px; */
     float: left;
-    width: 50px;
-    height: 50px;
+    /* width: 50px;
+    height: 50px; */
     background-color: #444;
     /* border: 2px dotted black; */
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+div.board div.field:hover {
+    border: 2px dotted #999;
+}
+
+.show-off {
+    background-image: none;
+}
+
+
+div.board div.field p {
+    font-size: 1.4rem;
+    color: #888;
 }
 
 div.draw-board {

@@ -57,16 +57,12 @@ div.board div.field {
     /* border: 2px dotted black; */
     cursor: pointer;
     box-sizing: border-box;
+    background-size: cover;
 }
 
 div.board div.field:hover {
     border: 2px dotted #999;
 }
-
-.show-off {
-    background-image: none;
-}
-
 
 div.board div.field p {
     font-size: 1.4rem;
@@ -95,4 +91,57 @@ div.draw-board:hover {
 
 .hide {
     display: none;
+}
+
+footer {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #111;
+    width: 100vw;
+    height: 60px;
+    color: #aaa;
+    /* justify-content: space-evenly; */
+    /* justify-content: space-between; */
+    justify-content: center;
+}
+
+footer i {
+    font-size: 3.6rem;
+    margin-right: 20px;
+}
+
+footer p {
+    /* width: 70%; */
+    font-size: 1.2rem;
+    /* flex-basis: 60%; */
+}
+
+footer div.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #aaa;
+    /* padding: 10px 40px; */
+    height: 35px;
+    width: 160px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.1s ease-in;
+    margin-left: 30px;
+    /* box-sizing: border-box; */
+    border-radius: 4px;
+    letter-spacing: 2px;
+}
+
+footer div.button:hover {
+    background-color: #aaa;
+    color: #111;
+    /* box-shadow: 0 0 2px 0px whitesmoke; */
+    font-weight: 700;
+    font-size: 1.4rem;
+    /* letter-spacing: 1px; */
 }

@@ -1,5 +1,5 @@
 class Board {
-    constructor(boardWidth = 5, boardHeight = 5, oneFieldSize = 50, boardFieldMargin = 2) {
+    constructor(boardWidth = 5, boardHeight = 5, oneFieldSize = 50, boardFieldMargin = 2, fieldSoundEffectUrl) {
         this.boardWidth = boardWidth;
         this.boardHeight = boardHeight;
         this.boardFieldSize = oneFieldSize;
@@ -7,7 +7,7 @@ class Board {
         this.fields = [];
 
         for (let i = 0; i < boardWidth * boardHeight; i++) {
-            this.fields.push(new Field(this.boardFieldSize, i));
+            this.fields.push(new Field(this.boardFieldSize, i, fieldSoundEffectUrl));
         }
     }
 }

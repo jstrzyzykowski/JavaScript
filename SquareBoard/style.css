@@ -144,6 +144,10 @@ div.game-level {
     border-radius: 20px;
 }
 
+div.game-level.hide {
+    display: none;
+}
+
 div.game-level p {
     font-size: 3.6rem;
     font-family: 'Oswald', sans-serif;

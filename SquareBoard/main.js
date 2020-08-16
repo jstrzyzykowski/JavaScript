@@ -1,8 +1,10 @@
 // Objects
-const boardObj = new Board(5, 5, 50, 1, "sounds/MenuSelectionClick.wav");
+let boardObj;
 
 // DOM elements
+let gameLevelDiv;
 let playDivBtn;
+
 let boardDiv;
 let fieldsDivs = [];
 let imagesSrcs = [];
@@ -15,13 +17,17 @@ const main = () => {
 }
 
 const prepareDOMElements = () => {
+    gameLevelDiv = document.querySelector('.game-level');
     playDivBtn = document.querySelector('.play-button');
     imagesSrcs = document.getElementsByTagName('img');
 }
 
 const prepareDOMEvents = () => {
     playDivBtn.addEventListener('click', function() {
-
+        const chooseSize = document.querySelector("input[name=boardSize]:checked").value;
+        // console.log(chooseSize);
+        boardObj = new Board(chooseSize, 50, 1, "sounds/MenuSelectionClick.wav");
+        gameLevelDiv.classList.add('hide');
         drawBoard();
     });
 }

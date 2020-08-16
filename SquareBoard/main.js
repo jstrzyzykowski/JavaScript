@@ -21,6 +21,7 @@ const prepareDOMElements = () => {
 
 const prepareDOMEvents = () => {
     playDivBtn.addEventListener('click', function() {
+
         drawBoard();
     });
 }

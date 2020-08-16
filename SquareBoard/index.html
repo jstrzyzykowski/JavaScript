@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SquareBoard</title>
     <script src="https://kit.fontawesome.com/44fdced0d7.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -15,10 +16,31 @@
         <img src="images/ammonite.png" alt="Image of ammonite">
         <img src="images/spider.png" alt="Image of spider">
     </div>
+
+    <div class="game-level">
+        <p>Board size</p>
+        <div class="options">
+            <div class="option">
+                <input type="radio" name="boardSize" id="sizeSmall" value="small" checked="checked">
+                <label for="sizeSmall">Small [4 x 4]</label>
+            </div>
+
+            <div class="option">
+                <input type="radio" name="boardSize" id="sizeMedium" value="medium">
+                <label for="sizeMedium">Medium [6 x 6]</label>
+            </div>
+
+            <div class="option">
+                <input type="radio" name="boardSize" id="sizeLarge" value="Large">
+                <label for="sizeLarge">Large [8 x 8]</label>
+            </div>
+        </div>
+        <div class="play-button"><span>Play</span></div>
+    </div>
     <footer>
         <i class="fab fa-github"></i>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem, vitae.</p>
-        <div class="button">Let's start!</div>
+        <!-- <div class="button">Let's start!</div> -->
     </footer>
     <script src="Field.js"></script>
     <script src="Board.js"></script>

@@ -2,28 +2,25 @@
 const boardObj = new Board(5, 5, 50, 1, "sounds/MenuSelectionClick.wav");
 
 // DOM elements
-let startGameBtn;
+let playDivBtn;
 let boardDiv;
 let fieldsDivs = [];
 let imagesSrcs = [];
-// let fieldsImages = [];
 
 
 
 const main = () => {
     prepareDOMElements();
     prepareDOMEvents();
-    // drawBoard();
 }
 
 const prepareDOMElements = () => {
-    startGameBtn = document.querySelector('div.button');
+    playDivBtn = document.querySelector('.play-button');
     imagesSrcs = document.getElementsByTagName('img');
 }
 
 const prepareDOMEvents = () => {
-    startGameBtn.addEventListener('click', function() {
-        // startGameBtn.classList.add('hide');
+    playDivBtn.addEventListener('click', function() {
         drawBoard();
     });
 }
@@ -33,10 +30,7 @@ const drawBoard = () => {
     const boardFieldSize = boardObj.boardFieldSize;
     const boardFieldMargin = boardObj.boardFieldMargin;
 
-
     boardDiv = document.createElement('div');
-    // width: calc(5 * 50px + 5 * 2px);
-    // height: calc(5 * 50px + 5 * 2px);
     boardDiv.style.width = `${boardWidth * boardFieldSize + boardWidth * (boardFieldMargin * 2)}px`;
     boardDiv.classList.add('board');
     boardDiv.classList.add('clearfix');
@@ -47,13 +41,11 @@ const drawBoard = () => {
 
         const audioElement = document.createElement('audio');
         audioElement.src = `${field.soundEffectUrl}`;
-        // audioElement.classList.add('sound');
 
         const fieldDiv = document.createElement('div');
         fieldDiv.style.width = `${boardObj.boardFieldSize}px`;
         fieldDiv.style.height = `${boardObj.boardFieldSize}px`;
         fieldDiv.style.margin = `${boardObj.boardFieldMargin}px`;
-        // fieldDiv.style.backgroundImage = `url(${field.imageUrl})`;
         fieldDiv.addEventListener('click', function() {
             if (field.isImageVisible) {
                 this.style.backgroundImage = "";
@@ -77,7 +69,6 @@ const drawBoard = () => {
         fieldDiv.appendChild(label);
         boardDiv.appendChild(fieldDiv);
     });
-
 
     document.body.appendChild(boardDiv);
 }

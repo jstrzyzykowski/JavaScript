@@ -8,12 +8,14 @@ let boardDiv;
 let fieldsDivs = [];
 let images = [];
 let imagesSrcs = [];
+let currentTimeSpn;
 
 
 // Game containers
-// let memoryImages = [];
-let userClickNumber = 1;
+let time = 0;
 let currentPair = [];
+// let isGameFinished;
+
 
 
 const main = () => {
@@ -31,18 +33,19 @@ const prepareDOMElements = () => {
         imagesSrcs.push(images[i].currentSrc);
     }
 
-    // for (let i = 0; i < imagesSrcs.length; i++) {
-    //     memoryImages.push(new MemoryImage(imagesSrcs[i].currentSrc));
-    //     memoryImages.push(new MemoryImage(imagesSrcs[i].currentSrc));
-    // }
+    currentTimeSpn = document.querySelector('.timer p.current-time span');
 }
 
 const prepareDOMEvents = () => {
     playDivBtn.addEventListener('click', function() {
         const chooseSize = document.querySelector("input[name=boardSize]:checked").value;
-        // console.log(chooseSize);
         boardObj = new Board(chooseSize, 50, 1, "sounds/MenuSelectionClick.wav");
         gameLevelDiv.classList.add('hide');
+        setInterval(() => {
+            time++;
+            currentTimeSpn.innerText = `${(time / 100).toFixed(1)}s`;
+        }, 10);
+        isGameFinished = false;
         drawBoard();
     });
 }
@@ -61,14 +64,8 @@ const drawBoard = () => {
 
         // Set memory pairs on the board
         const randomUrl = Math.floor(Math.random() * imagesSrcs.length);
-        // console.log(`imagesSrcs.length => ${imagesSrcs.length}`);
         field.memoryImage.url = imagesSrcs[randomUrl];
         imagesSrcs.splice(randomUrl, 1);
-        // console.log('SPLICED');
-
-
-        // field.memoryImage.url = `${imagesSrcs[randomUrl].currentSrc}`;
-        // field.memoryImage.timesUsed++;
 
         const audioElement = document.createElement('audio');
         audioElement.src = `${field.soundEffectUrl}`;
@@ -87,22 +84,10 @@ const drawBoard = () => {
             // 2 - COMPLETED
             // 3 - REDRAW
 
-            check(this);
+            checkPair(this);
+            checkGameFinished();
             redrawBoard();
             playSoundEffect(audioElement);
-
-            // // ====================================
-            // if (field.isImageVisible) {
-            //     this.style.backgroundImage = "";
-            //     field.isImageVisible = false;
-            // } else {
-            //     this.style.backgroundImage = `url(${field.memoryImage.url})`;
-            //     field.isImageVisible = true;
-            // }
-
-            // audioElement.currentTime = 0;
-            // audioElement.play();
-            // // ====================================
         });
 
         fieldDiv.classList.add('field');
@@ -114,7 +99,7 @@ const drawBoard = () => {
     document.body.appendChild(boardDiv);
 }
 
-function check(fieldDiv) {
+function checkPair(fieldDiv) {
     const fieldObj = boardObj.fields[fieldDiv.dataset.id];
 
     if (fieldObj.status === 0) {
@@ -131,7 +116,7 @@ function check(fieldDiv) {
                 currentPair = [];
             } else {
                 currentPair.forEach(fieldObj => {
-                    fieldObj.status = 0;
+                    fieldObj.status = 3;
                 });
                 currentPair = [];
             }
@@ -140,14 +125,22 @@ function check(fieldDiv) {
 }
 
 const redrawBoard = () => {
+
+
     boardObj.fields.forEach(fieldObj => {
 
         const fieldDiv = document.querySelector(`[data-id="${fieldObj.id}"]`);
 
-        if (fieldObj.status === 1 || fieldObj.status === 2) {
+        if (fieldObj.status === 0) {
+            fieldDiv.style.backgroundImage = "";
+        } else if (fieldObj.status === 1 || fieldObj.status === 2) {
             fieldDiv.style.backgroundImage = `url(${fieldObj.memoryImage.url})`;
         } else {
-            fieldDiv.style.backgroundImage = "";
+            fieldDiv.style.backgroundImage = `url(${fieldObj.memoryImage.url})`;
+            fieldObj.status = 0;
+            setTimeout(() => {
+                fieldDiv.style.backgroundImage = "";
+            }, 500);
         }
     });
 }
@@ -157,7 +150,19 @@ const playSoundEffect = (audioElement) => {
     audioElement.play();
 }
 
+const checkGameFinished = () => {
+    let result = 0;
 
+    boardObj.fields.forEach(fieldObj => {
+        if (fieldObj.status === 2) result++;
+    });
+
+    if (result === boardObj.fields.length) console.log('FINISHED');
+    else {
+        // GAME RESET HERE
+        console.log('The game is still running...');
+    }
+}
 
 
 document.addEventListener('DOMContentLoaded', main);

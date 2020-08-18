@@ -225,3 +225,25 @@ div.game-level div.play-button:hover span {
         left: 50%;
     }
 }
+
+div.timer {
+    text-align: center;
+    position: absolute;
+    top: 15%;
+    left: 0;
+    right: 0;
+    background-color: #555;
+}
+
+div.timer p {
+    font-family: monospace;
+    color: #aaa;
+}
+
+div.timer p.current-time {
+    font-size: 2.4rem;
+}
+
+div.timer p.record-time {
+    font-size: 1.6rem;
+}

@@ -1,10 +1,6 @@
 class Board {
     constructor(boardSize = 'small', oneFieldSize = 50, boardFieldMargin = 2, fieldSoundEffectUrl) {
 
-        // boardWidth % 2 === 0 ? this.boardWidth = boardWidth : this.boardWidth = 4;
-
-        // boardHeight % 2 === 0 ? this.boardWidth = boardWidth : this.boardWidth = 4;
-
         switch (boardSize) {
             case 'small':
                 this.boardWidth = 4;

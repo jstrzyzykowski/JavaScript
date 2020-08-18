@@ -35,7 +35,6 @@ div.board {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    /* box-sizing: content-box; */
     border: 20px solid transparent;
     border-image: url(images/border.png) 10 round;
 
@@ -169,7 +168,8 @@ div.game-level div.options div.option label {
     margin-left: 5px;
 }
 
-div.game-level div.play-button {
+div.game-level div.play-button,
+div.again-button {
     position: relative;
     width: 160px;
     height: 40px;
@@ -182,21 +182,25 @@ div.game-level div.play-button {
     transition: all 0.2s ease;
     font-size: 1.4rem;
     cursor: pointer;
+    border-radius: 2px;
 }
 
-div.game-level div.play-button span {
+div.game-level div.play-button span,
+div.again-button span {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-div.game-level div.play-button:hover {
+div.game-level div.play-button:hover,
+div.again-button:hover {
     background-color: #E5E5E5;
     color: #333;
 }
 
-div.game-level div.play-button:hover span {
+div.game-level div.play-button:hover span,
+div.again-button:hover span {
     animation: shake 0.5s 1 ease;
 }
 
@@ -232,7 +236,6 @@ div.timer {
     top: 15%;
     left: 0;
     right: 0;
-    background-color: #555;
 }
 
 div.timer p {
@@ -246,4 +249,11 @@ div.timer p.current-time {
 
 div.timer p.record-time {
     font-size: 1.6rem;
+}
+
+div.again-button {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
 }

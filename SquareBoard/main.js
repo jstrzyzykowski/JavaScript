@@ -8,14 +8,18 @@ let boardDiv;
 let fieldsDivs = [];
 let images = [];
 let imagesSrcs = [];
-let currentTimeSpn;
+let timerDiv;
+let againDivBtn;
 
 
 // Game containers
 let time = 0;
 let currentPair = [];
-// let isGameFinished;
+let timerInterval;
 
+
+// =====================================================
+// =====================================================
 
 
 const main = () => {
@@ -33,22 +37,17 @@ const prepareDOMElements = () => {
         imagesSrcs.push(images[i].currentSrc);
     }
 
-    currentTimeSpn = document.querySelector('.timer p.current-time span');
+    timerDiv = document.querySelector('div.timer');
+    againDivBtn = document.querySelector('div.again-button');
 }
 
 const prepareDOMEvents = () => {
-    playDivBtn.addEventListener('click', function() {
-        const chooseSize = document.querySelector("input[name=boardSize]:checked").value;
-        boardObj = new Board(chooseSize, 50, 1, "sounds/MenuSelectionClick.wav");
-        gameLevelDiv.classList.add('hide');
-        setInterval(() => {
-            time++;
-            currentTimeSpn.innerText = `${(time / 100).toFixed(1)}s`;
-        }, 10);
-        isGameFinished = false;
-        drawBoard();
-    });
+    playDivBtn.addEventListener('click', play);
+    againDivBtn.addEventListener('click', refreshPage);
 }
+
+// =====================================================
+// =====================================================
 
 const drawBoard = () => {
     const boardWidth = boardObj.boardWidth;
@@ -93,6 +92,7 @@ const drawBoard = () => {
         fieldDiv.classList.add('field');
         fieldDiv.classList.add('show-off');
 
+        fieldsDivs.push(fieldDiv);
         boardDiv.appendChild(fieldDiv);
     });
 
@@ -157,11 +157,35 @@ const checkGameFinished = () => {
         if (fieldObj.status === 2) result++;
     });
 
-    if (result === boardObj.fields.length) console.log('FINISHED');
-    else {
-        // GAME RESET HERE
+    if (result === boardObj.fields.length) {
+        const completedAudio = document.createElement('audio');
+        completedAudio.src = 'sounds/completed.wav';
+        completedAudio.currentTime = 0;
+        completedAudio.play();
+        console.log('FINISHED');
+        clearInterval(timerInterval);
+        againDivBtn.classList.remove('hide');
+
+    } else {
         console.log('The game is still running...');
     }
+}
+
+const refreshPage = () => {
+    window.location.reload();
+}
+
+const play = () => {
+    const chooseSize = document.querySelector("input[name=boardSize]:checked").value;
+    const timerSpan = timerDiv.querySelector('p.current-time span');
+    boardObj = new Board(chooseSize, 50, 1, "sounds/MenuSelectionClick.wav");
+    gameLevelDiv.classList.add('hide');
+    timerDiv.classList.remove('hide');
+    timerInterval = setInterval(() => {
+        time++;
+        timerSpan.innerText = `${(time / 100).toFixed(1)}s`;
+    }, 10);
+    drawBoard();
 }
 
 

@@ -6,7 +6,6 @@ class Field {
         this.width = size;
         this.height = size;
         this.memoryImage = new MemoryImage();
-        // this.imageUrl = "";
         this.soundEffectUrl = soundEffectUrl;
     }
 }

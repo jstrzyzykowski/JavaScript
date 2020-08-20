@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* .clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+} */
+
+body {
+    background-color: #bbb;
+}
+
+div.github {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translate(-50%);
+    /* background-color: #222; */
+    z-index: 1;
+    background-color: #bbb;
+    border-radius: 50%;
+    border: 4px solid #bbb;
+}
+
+div.github i {
+    /* color: teal; */
+font-size: 6rem;
+color: #374353;
+}
+
+div.calculator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(4*(70px + 2*10px) + 2*10px);
+    padding: 10px 10px 40px;
+    border-radius: 35px;
+    background-color: #374353;
+}
+
+div.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 10px 20px 10px;
+}
+
+div.clock {
+    padding-left: 20px;
+}
+
+div.clock p{
+    color: whitesmoke;
+    font-weight: 700;
+    font-size: 1.6rem;
+}
+
+div.theme-slider {
+    display: flex;
+    position: relative;
+}
+
+div.slider-dot {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translate(-100%, -50%);
+    background-color: #FEFEFE;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+div.slider-dot i {
+    font-size: 1.4rem;
+    line-height: 25px;
+    width: 100%;
+    color: #C3C7C6;
+}
+
+div.slider-bar {
+    background-color: #8B9594;
+    padding: 3px 28px 3px 15px;
+    border-radius: 10px;
+}
+
+div.slider-bar p {
+    color: #F2F2F4;
+    font-weight: 700;
+}
+
+div.display {
+    padding: 20px 10px 40px;
+}
+
+div.result p,
+div.equation p {
+    text-align: right;
+    color: whitesmoke;
+    
+}
+
+
+div.result p{
+    font-size: 5.2rem;
+    font-weight: 700;
+}
+
+div.equation p {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: gray;
+}
+
+div.buttons {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #374353;
+    color: whitesmoke;
+    height: 70px;
+    width: 70px;
+    border-radius: 14px;
+    margin: 10px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    box-shadow: -8px -8px 10px 0 #3F4B59,
+    8px 8px 10px 0 #2F3847;
+    transition: 0.2s ease;
+}
+
+div.button:hover {
+    background-color: #263241;
+}

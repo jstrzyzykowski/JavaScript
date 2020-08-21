@@ -19,9 +19,20 @@ body {
     background-color: #bbb;
 }
 
+div.calculator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(4*(70px + 2*10px) + 2*10px);
+    padding: 10px 10px 40px;
+    border-radius: 35px;
+    background-color: #374353;
+}
+
 div.github {
     position: absolute;
-    top: 80px;
+    top: -35px;
     left: 50%;
     transform: translate(-50%);
     /* background-color: #222; */
@@ -35,17 +46,6 @@ div.github i {
     /* color: teal; */
 font-size: 6rem;
 color: #374353;
-}
-
-div.calculator {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: calc(4*(70px + 2*10px) + 2*10px);
-    padding: 10px 10px 40px;
-    border-radius: 35px;
-    background-color: #374353;
 }
 
 div.header {
@@ -99,7 +99,7 @@ div.slider-bar p {
     font-weight: 700;
 }
 
-div.display {
+div.main {
     padding: 20px 10px 40px;
 }
 
@@ -107,7 +107,7 @@ div.result p,
 div.equation p {
     text-align: right;
     color: whitesmoke;
-    
+    overflow:hidden;
 }
 
 

@@ -30,103 +30,120 @@ class Calculator {
     handleClick(dataFunction) {
         switch (dataFunction) {
             case 'reset':
-                this.operationType = "";
-
-                this.resultContext = "0";
-                this.equationContext = "0";
-                this.numbers = [];
-                this.waitingForSecondNumber = false;
-                this.secondNumber = null;
+                this.doReset();
                 break
             case 'one':
-                if (this.resultContext === "0" || this.waitingForSecondNumber) {
-                    this.resultContext = "1";
-                    this.waitingForSecondNumber = false;
-                }
-                else this.resultContext += "1";
-                break;
-            case 'one':
-                this.display(1);
+                this.displayNumber(1);
                 break;
             case 'two':
-                this.display(2);
+                this.displayNumber(2);
                 break;
             case 'three':
-                this.display(3);
+                this.displayNumber(3);
                 break;
             case 'four':
-                this.display(4);
+                this.displayNumber(4);
                 break;
             case 'five':
-                this.display(5);
+                this.displayNumber(5);
                 break;
             case 'six':
-                this.display(6);
+                this.displayNumber(6);
                 break;
             case 'seven':
-                this.display(7);
+                this.displayNumber(7);
                 break;
             case 'eight':
-                this.display(8);
+                this.displayNumber(8);
                 break;
             case 'nine':
-                this.display(9);
+                this.displayNumber(9);
                 break;
             case 'zero':
-                this.display(0);
+                this.displayNumber(0);
+                break;
+            case 'divide':
+                this.doOperation('divide');
                 break;
             case 'multiply':
-                this.numbers.push(parseFloat(this.resultContext));
-                this.operationType = 'multiply';
-                this.equationContext = `${this.numbers[0]} x `;
-                this.waitingForSecondNumber = true;
+                this.doOperation('multiply');
                 break;
             case 'subtraction':
-                this.numbers.push(parseFloat(this.resultContext));
-                this.operationType = 'subtraction';
-                this.equationContext = `${this.numbers[0]} - `;
-                this.waitingForSecondNumber = true;
+                this.doOperation('subtraction');
+                break;
+            case 'addition':
+                this.doOperation('addition');
                 break;
             case 'result':
-                let result;
+                this.showResult();
 
-                this.numbers.push(parseFloat(this.resultContext));
-                switch (this.operationType) {
-                    case 'multiply':
-                        if (this.numbers.length === 1) {
-                            this.numbers.push(this.secondNumber);
-                        }
-
-                        result = this.numbers[0] * this.numbers[1];
-                        this.secondNumber = this.numbers[1];
-                        this.resultContext = result;
-                        this.equationContext = `${this.numbers[0]} x ${this.numbers[1]} =`;
-                        this.numbers = [];
-                        break;
-                    case 'subtraction':
-                        if (this.numbers.length === 1) {
-                            this.numbers.push(this.secondNumber);
-                        }
-
-                        result = this.numbers[0] - this.numbers[1];
-                        this.secondNumber = this.numbers[1];
-                        this.resultContext = result;
-                        this.equationContext = `${this.numbers[0]} - ${this.numbers[1]} =`;
-                        this.numbers = [];
-                        break;
-                }
                 break
         }
 
         this.render();
     }
 
-    display(value) {
+    displayNumber(number) {
         if (this.resultContext === "0" || this.waitingForSecondNumber) {
-            this.resultContext = `${value}`;
+            this.resultContext = `${number}`;
             this.waitingForSecondNumber = false;
         }
-        else this.resultContext += `${value}`;
+        else this.resultContext += `${number}`;
+    }
+
+    doReset() {
+        this.operationType = "";
+        this.resultContext = "0";
+        this.equationContext = "0";
+        this.numbers = [];
+        this.waitingForSecondNumber = false;
+        this.secondNumber = null;
+    }
+
+    doOperation(type) {
+        this.numbers.push(parseFloat(this.resultContext));
+        this.operationType = type;
+        switch (type) {
+            case 'multiply':
+                this.equationContext = `${this.numbers[0]} x `;
+                break;
+            case 'divide':
+                this.equationContext = `${this.numbers[0]} / `;
+                break;
+            case 'addition':
+                this.equationContext = `${this.numbers[0]} + `;
+                break;
+            case 'subtraction':
+                this.equationContext = `${this.numbers[0]} - `;
+                break;
+        }
+        this.waitingForSecondNumber = true;
+    }
+
+    showResult() {
+        this.numbers.push(parseFloat(this.resultContext));
+        if (this.numbers.length === 1) this.numbers.push(this.secondNumber);
+        this.secondNumber = this.numbers[1];
+
+        switch (this.operationType) {
+            case 'divide':
+                this.resultContext = this.numbers[0] / this.numbers[1];
+                this.equationContext = `${this.numbers[0]} / ${this.numbers[1]} =`;
+                break;
+            case 'multiply':
+                this.resultContext = this.numbers[0] * this.numbers[1];
+                this.equationContext = `${this.numbers[0]} x ${this.numbers[1]} =`;
+                break;
+            case 'subtraction':
+                this.resultContext = this.numbers[0] - this.numbers[1];
+                this.equationContext = `${this.numbers[0]} - ${this.numbers[1]} =`;
+                break;
+            case 'addition':
+                this.resultContext = this.numbers[0] + this.numbers[1];
+                this.equationContext = `${this.numbers[0]} + ${this.numbers[1]} =`;
+                break;
+        }
+        this.numbers = [];
     }
 
     updateClock() {

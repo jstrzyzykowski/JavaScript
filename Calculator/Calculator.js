@@ -1,12 +1,20 @@
 class Calculator {
     constructor() {
-        this.display = new Display();
-        this.processor = new Processor();
-
+        // DOM Elements
         this.clock = document.querySelector('div.clock p');
         this.themeSlider = document.querySelector('div.theme-slider');
         this.result = document.querySelector('div.result p');
         this.equation = document.querySelector('div.equation p');
+
+        // Calculator data
+        this.operationType = "";
+
+        this.resultContext = "0";
+        this.equationContext = "0";
+        this.numbers = [];
+        this.waitingForSecondNumber = false;
+        this.secondNumber = null;
+
 
         document.querySelectorAll('div.button').forEach(button => {
             button.addEventListener('click', (e) => {
@@ -20,78 +28,92 @@ class Calculator {
     }
 
     handleClick(dataFunction) {
-
         switch (dataFunction) {
+            case 'reset':
+                this.operationType = "";
+
+                this.resultContext = "0";
+                this.equationContext = "0";
+                this.numbers = [];
+                this.waitingForSecondNumber = false;
+                this.secondNumber = null;
+                break
             case 'one':
-                this.writeNumber(1);
+                if (this.resultContext === "0" || this.waitingForSecondNumber) {
+                    this.resultContext = "1";
+                    this.waitingForSecondNumber = false;
+                }
+                else this.resultContext += "1";
+                break;
+            case 'one':
+                this.display(1);
                 break;
             case 'two':
-                this.writeNumber(2);
+                this.display(2);
                 break;
             case 'three':
-                this.writeNumber(3);
+                this.display(3);
                 break;
             case 'four':
-                this.writeNumber(4);
+                this.display(4);
                 break;
             case 'five':
-                this.writeNumber(5);
+                this.display(5);
                 break;
             case 'six':
-                this.writeNumber(6);
+                this.display(6);
                 break;
             case 'seven':
-                this.writeNumber(7);
+                this.display(7);
                 break;
             case 'eight':
-                this.writeNumber(8);
+                this.display(8);
                 break;
             case 'nine':
-                this.writeNumber(9);
+                this.display(9);
                 break;
             case 'zero':
-                this.writeNumber(0);
-                break;
-            case 'reset':
-                if (this.processor.resultString != "0" || this.processor.equationString != "0") {
-                    this.processor.resultString = "0";
-                    this.processor.equationString = "0";
-                    this.display.resultCapacity = 10;
-                    this.display.equationCapacity = 50;
-                }
+                this.display(0);
                 break;
             case 'multiply':
-                if (this.processor.resultString != "0" || this.processor.numbers.length) {
-                    this.processor.numbers.push(parseFloat(this.processor.resultString));
-                    if (this.processor.equationString != "0") this.processor.equationString += `${this.processor.resultString} x `;
-                    else this.processor.equationString = `${this.processor.resultString} x `;
-
-                    this.processor.operationChoosed = true;
-                    this.processor.operationType = "multiply";
-                }
+                this.numbers.push(parseFloat(this.resultContext));
+                this.operationType = 'multiply';
+                this.equationContext = `${this.numbers[0]} x `;
+                this.waitingForSecondNumber = true;
+                break;
+            case 'subtraction':
+                this.numbers.push(parseFloat(this.resultContext));
+                this.operationType = 'subtraction';
+                this.equationContext = `${this.numbers[0]} - `;
+                this.waitingForSecondNumber = true;
                 break;
             case 'result':
-                console.log(this.processor.numbers.length);
-                if (this.processor.numbers.length === 1) {
-                    this.processor.numbers.push(parseFloat(this.processor.resultString));
-                    console.log(this.processor.numbers)
+                let result;
 
-                    if (this.processor.operationType != "") {
-                        switch (this.processor.operationType) {
-                            case 'multiply':
-                                const numberOne = this.processor.numbers[0];
-                                const numberTwo = this.processor.numbers[1];
-                                const result = numberOne * numberTwo;
-
-                                this.processor.resultString = `${result}`;
-                                this.processor.equationString += `${numberTwo} = ${result}`;
-                                this.processor.operationChoosed = false;
-                                this.processor.operationType = "";
-                                this.processor.numbers = [];
-
-                                break
+                this.numbers.push(parseFloat(this.resultContext));
+                switch (this.operationType) {
+                    case 'multiply':
+                        if (this.numbers.length === 1) {
+                            this.numbers.push(this.secondNumber);
                         }
-                    }
+
+                        result = this.numbers[0] * this.numbers[1];
+                        this.secondNumber = this.numbers[1];
+                        this.resultContext = result;
+                        this.equationContext = `${this.numbers[0]} x ${this.numbers[1]} =`;
+                        this.numbers = [];
+                        break;
+                    case 'subtraction':
+                        if (this.numbers.length === 1) {
+                            this.numbers.push(this.secondNumber);
+                        }
+
+                        result = this.numbers[0] - this.numbers[1];
+                        this.secondNumber = this.numbers[1];
+                        this.resultContext = result;
+                        this.equationContext = `${this.numbers[0]} - ${this.numbers[1]} =`;
+                        this.numbers = [];
+                        break;
                 }
                 break
         }
@@ -99,27 +121,12 @@ class Calculator {
         this.render();
     }
 
-    writeNumber(value) {
-        if (this.display.resultCapacity) {
-            if (this.processor.resultString != "0") {
-                if (!this.processor.operationChoosed) {
-                    this.processor.resultString += `${value}`;
-                    this.display.resultCapacity--;
-                    console.log('halo1');
-                } else {
-                    this.processor.resultString = `${value}`;
-                    this.display.resultCapacity = 10;
-                    this.processor.operationChoosed = false;
-                }
-            } else {
-                if (value) {
-                    this.processor.resultString = `${value}`;
-                    this.processor.operationChoosed = false;
-                    console.log('operationChoosed = false');
-                }
-            }
-            this.render();
+    display(value) {
+        if (this.resultContext === "0" || this.waitingForSecondNumber) {
+            this.resultContext = `${value}`;
+            this.waitingForSecondNumber = false;
         }
+        else this.resultContext += `${value}`;
     }
 
     updateClock() {
@@ -135,8 +142,8 @@ class Calculator {
     }
 
     render() {
-        this.result.innerText = this.processor.resultString;
-        this.equation.innerText = this.processor.equationString;
+        this.result.innerText = this.resultContext;
+        this.equation.innerText = this.equationContext;
     }
 
 }

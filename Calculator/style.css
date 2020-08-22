@@ -35,7 +35,6 @@ div.github {
     top: -35px;
     left: 50%;
     transform: translate(-50%);
-    /* background-color: #222; */
     z-index: 1;
     background-color: #bbb;
     border-radius: 50%;
@@ -43,9 +42,8 @@ div.github {
 }
 
 div.github i {
-    /* color: teal; */
-font-size: 6rem;
-color: #374353;
+    font-size: 6rem;
+    color: #374353;
 }
 
 div.header {

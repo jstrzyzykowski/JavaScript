@@ -6,7 +6,7 @@ class Calculator {
         this.result = document.querySelector('div.result p');
         this.equation = document.querySelector('div.equation p');
 
-        // Calculator data
+        // Calculator Data
         this.operationType = "";
 
         this.resultContext = "0";

@@ -1,0 +1,106 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+html {
+    font-size: 10px;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+body {
+    /* background-color: #e1e6ec; */
+    background-color: #e1e6ec;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* overflow: hidden; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px 20px;
+    width: 320px;
+    border-radius: 8px;
+    background-color: #e1e6ec;
+    box-shadow: 5px 5px 11px #a2b1c6, -5px -5px 11px #fff;
+    text-align: center;
+}
+
+.container .title {
+    overflow: hidden;
+}
+
+.container h1 {
+    margin-top: 15px;
+    font-size: 1.4rem;
+    transform: translateX(101%);
+    color: #6e757e;
+    /* text-shadow: 2px 2px 5px #e1e6ec, -2px -2px 5px #fff;; */
+    animation: slide 15s linear infinite;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(101%);
+    }
+
+    100% {
+        transform: translateX(-101%);
+    }
+}
+
+.container img {
+    width: 95%;
+    opacity: 0.9;
+    border-radius: 5px;
+}
+
+.container .level {
+    margin: 15px 15px;
+    align-self: stretch;
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: #e1e6ec;
+    box-shadow: 5px 5px 11px #a2b1c6, -5px -5px 11px #fff;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.container .level::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #8792a1;
+    box-shadow: 2px 2px 5px #a2b1c6, -2px -2px 5px #fff;
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+}
+
+.buttons button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 5px 10px;
+    background-color: #e1e6ec;
+    box-shadow: 2px 2px 5px #a2b1c6, -2px -2px 5px #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.buttons button:active {
+    background-color: #e1e6ec;
+    box-shadow: inset 2px 2px 5px #a2b1c6, -2px -2px 5px #fff;
+}
+
+.buttons button i {
+    font-size: 2rem;
+    color: #6e757e;
+}
+
+

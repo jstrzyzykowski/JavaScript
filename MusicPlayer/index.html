@@ -5,24 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MusicPlayer</title>
+    <script src="https://kit.fontawesome.com/44fdced0d7.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="#">
 </head>
 
 <body>
 
-    <div class="music-player">
-        <div class="play-button"></div>
-        <div class="time-now">
-            <span>0:31</span>
+    <div class="container">
+
+        <img src="img/cover.jpg" alt="">
+        <div class="title">
+            <h1>[Hunter X Hunter OP1] Ohayou by Keno</h1>
         </div>
-        <div class="progress-meter">
-            <div class="bar"></div>
-            <div class="dot"></div>
+        <input id="range" class="level" type="range" value="0" min="0">
+        <div class="buttons">
+            <button id="pre"><i class="fas fa-backward"></i></button>
+            <button id="play"><i id="play-icon" class="fas fa-play"></i></button>
+            <button id="next"><i class="fas fa-forward"></i></button>
         </div>
-        <div class="time-total">
-            <span>0:40</span>
-        </div>
-        <div class="sound-button"></div>
     </div>
 
     <script src="main.js"></script>

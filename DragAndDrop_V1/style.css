@@ -15,9 +15,13 @@ html {
     clear: both;
 } */
 
+body {
+    background-color: #333;
+}
+
 .square {
     position: absolute;
     width: 100px;
     height: 100px;
-    background-color: #333;
+    background-color: rgb(241, 152, 35);
 }
